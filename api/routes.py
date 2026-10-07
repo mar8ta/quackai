@@ -30,7 +30,8 @@ class AnalyzeRequest(BaseModel):
 class AnalyzeResponse(BaseModel):
     """What we send back to the client."""
 
-    status: str = Field(..., description="valid | invalid | ambiguous | contradictory | incomplete | unsupported | unknown")
+    status: str = Field(..., description="valid | invalid | ambiguous | contradictory | incomplete | unsupported")
+    type: str = Field(..., description="mathematics | calculus | statistics | logic | natural_language | general_question | unknown")
     category: str = Field(..., description="Problem category, e.g. 'incomplete_expression'.")
     message: str = Field(..., description="Human-readable explanation of the result.")
     suggestion: str | None = Field(None, description="A suggested correction, if any.")
